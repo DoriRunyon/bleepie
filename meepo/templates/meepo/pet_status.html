@@ -1,0 +1,40 @@
+{% extends 'meepo/base.html' %}
+
+{% block content %}
+<div class="bleepie-status">
+    <div>
+        {% if pet == None or pet.health == 'D' %}
+                <h3><a href="{% url 'hatch_pet' %}" class="top-menu"><button>+ Hatch a Bleepie</button></a></h3>
+            {% endif %}
+    </div>
+
+    {% if pet != None %}
+        <div class="bleepie-info col-xs-12 col-sm-6">  
+            <h1>Bleepie Status</h1>  
+                <b><p>BLEEPIE NAME: </b>{{ pet.name }}</p>
+                <b><p>HEALTH: </b>{{ pet_health_message }}</p>
+                {% if days_alive > 0 %}
+                    <b><p>DAYS ALIVE: </b>{{ days_alive }}</p>
+                {% endif %}
+
+                {% if pet.health == 'H' or pet.health == 'S' %}
+                <form action={% url 'change_pet_health_based_on_BAL' %} method="post">{% csrf_token %}
+                  <b>ENTER BAL: </b>
+                  <input type="text" name="BAL">
+                  <input type="submit" value="Submit">
+                </form>
+                {% endif %}
+        </div>
+        <div class="pet-gif col-xs-12 col-sm-6">
+            {% if pet.health == 'H' %}
+                   <img src="../../static/images/happy.gif">
+                {% elif pet.health == 'S' %}
+                   <img src="../../static/images/sick.gif">
+                {% else %}
+                  <img src="../../static/images/dead.gif">
+                {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

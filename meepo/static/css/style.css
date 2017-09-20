@@ -1,0 +1,48 @@
+
+.about img {
+	display: block;
+	margin: 0 auto;
+	height: 200px;
+	width: 200px;
+}
+
+img {
+	height: 400px;
+	width: 400px;
+}
+
+button {
+	margin: 15px;
+}
+
+.bleepie-info {
+	padding-top: 35px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+.navbar-default .navbar-brand {
+  color: gray;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: black;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: black;
+}
+
+.navbar-default .navbar-toggle {
+ border-color: transparent !important;
+}
+
+.navbar-toggle:hover {
+	background-color: gray !important;
+}
+
+.navbar-toggle {
+	background-color: white !important;
+}
