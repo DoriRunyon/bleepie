@@ -22,7 +22,7 @@ SECRET_KEY = '082-pp3*#pmm%436zv$r*0!w9m*2%q+ejfdbz@22_-cb$+grh^'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['5cf512bb.ngrok.io', 'localhost']
+ALLOWED_HOSTS = ['5cf512bb.ngrok.io', 'localhost', 'bleepie.herokuapp.com']
 
 # including AUTH_USER_MODEL to extend User Model using AbstractUser
 AUTH_USER_MODEL = 'meepo.User'
