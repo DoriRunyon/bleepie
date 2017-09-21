@@ -125,7 +125,7 @@ def incoming_sms(request):
         try:
             pet = Pet.objects.filter(owner=user.pk).exclude(health='D')[0]
         except IndexError:
-            message = client.messages.create(to=user_phone_number, from_=twilio_phone_number, body="You have no pet! Go to ??? to hatch a Bleepie.")
+            message = client.messages.create(to=user_phone_number, from_=twilio_phone_number, body="You have no pet! Go to bleepie.herokuapp.com to hatch a Bleepie.")
             return HttpResponse(message, content_type='text/xml')
 
         previous_bal = get_previous_bal(user)

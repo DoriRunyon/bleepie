@@ -9,7 +9,7 @@ responses = {
         'healthy_range_bal_user_on_watch_and_higher_previous': "Drink some water and get some rest!",
         'sick_range_bal_and_pet_healthy': "Watch out - your bleepie is mighty sick.",
         'sick_range_bal_and_pet_sick': "Your bleepie is already sickly :(",
-        'dead_range_bal': "You killed your bleepie! Go to ??? to hatch a new bleepie pet :("
+        'dead_range_bal': "You killed your bleepie! Go to bleepie.herokuapp.com to hatch a new bleepie pet :("
 
 }
 
