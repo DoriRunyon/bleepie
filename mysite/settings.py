@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '082-pp3*#pmm%436zv$r*0!w9m*2%q+ejfdbz@22_-cb$+grh^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['5cf512bb.ngrok.io', 'localhost']
 
@@ -76,15 +76,23 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'meepo',
+#         'USER': 'doreenrunyon',
+#         'PASSWORD': os.environ['DB_PASS'],
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
+SECRET_KEY = config('DP_PASS')
+DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'meepo',
-        'USER': 'doreenrunyon',
-        'PASSWORD': os.environ['DB_PASS'],
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
