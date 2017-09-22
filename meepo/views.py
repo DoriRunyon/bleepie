@@ -136,10 +136,14 @@ def incoming_sms(request):
         return HttpResponse(message, content_type='text/xml')
 
     except ValueError:
+        message_from_user = request.GET['Body']
         if message_from_user == 'k' or message_from_user == 'K':
             user = User.objects.filter(phone_number=user_phone_number_db_lookup)[0]
             pet = Pet.objects.filter(owner=user.pk).exclude(health='D')[0]
-            pet.kill_pet()
+            if pet:
+                pet.kill_pet()
+            message = client.messages.create(to=user_phone_number, from_=twilio_phone_number, body="Your pet is dead.")
+            return HttpResponse(message, content_type='text/xml')
         else:
             handle_incorrect_input(user_phone_number)
 
