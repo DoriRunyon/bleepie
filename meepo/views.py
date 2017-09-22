@@ -141,7 +141,7 @@ def incoming_sms(request):
             pet = Pet.objects.filter(owner=user.pk).exclude(health='D')[0]
             pet.kill_pet()
         else:
-            handle_incorrect_input(request.GET['From'])
+            handle_incorrect_input(user_phone_number)
 
 
 def handle_incorrect_input(phone_number):

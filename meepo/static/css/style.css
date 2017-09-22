@@ -1,14 +1,51 @@
 
+
+.container {
+	text-align: center;
+}
+
+.about {
+	margin: auto;
+	padding: 15px;
+	display: inline-block;
+}
+
 .about img {
 	display: block;
 	margin: 0 auto;
-	height: 200px;
-	width: 200px;
+	height: 500px;
+	width: 500px;
+}
+
+.about p {
+	text-align: center;
+	font-size: 125%;
+}
+
+.about h1 {
+	text-align: center;
+}
+
+.contact p {
+	text-align: left;
+	font-size: 125%;
+}
+
+.contact h1 {
+	text-align: left;
+}
+
+.left-align h2 {
+	text-align: left;
+}
+
+.left-align form {
+	text-align: left;
 }
 
 img {
-	height: 400px;
-	width: 400px;
+	height: 500px;
+	width: 500px;
 }
 
 button {
@@ -17,6 +54,10 @@ button {
 
 .bleepie-info {
 	padding-top: 35px;
+}
+
+.bleepie-status {
+	text-align: left;
 }
 
 .navbar-static-top {
@@ -28,11 +69,11 @@ button {
 }
 
 .navbar-default .navbar-brand:hover {
-  color: black;
+  color: red;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-  color: black;
+  color: red;
 }
 
 .navbar-default .navbar-toggle {
@@ -46,3 +87,4 @@ button {
 .navbar-toggle {
 	background-color: white !important;
 }
+
