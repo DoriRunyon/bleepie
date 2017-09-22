@@ -14,7 +14,7 @@ responses = {
 }
 
 SICK_BAL = float(0.10)
-DEAD_BAL = float(0.15)
+DEAD_BAL = float(0.12)
 
 def handle_BAL(bal, user, pet, previous_bal):
     """Given a BAL, updates pet health and/or user status."""

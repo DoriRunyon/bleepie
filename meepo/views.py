@@ -27,6 +27,7 @@ twilio_auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(twilio_account_sid, twilio_auth_token)
 my_phone_number = os.environ['MY_PHONE']
 twilio_phone_number = os.environ['TWILIO_PHONE']
+BLEEPIE_URL = 'bleepie.herokuapp.com'
 
 def signup(request):
     if request.method == 'POST':
@@ -128,6 +129,10 @@ def incoming_sms(request):
             message = client.messages.create(to=user_phone_number, from_=twilio_phone_number, body="You have no pet! Go to bleepie.herokuapp.com to hatch a Bleepie.")
             return HttpResponse(message, content_type='text/xml')
 
+        if bal < 0 or bal > 0.3:
+            message = client.messages.create(to=user_phone_number, from_=twilio_phone_number, body="Please enter a number between 0.0 and 0.3. BAL > 0.3 = probably unconscious.")
+            return HttpResponse(message, content_type='text/xml')
+
         previous_bal = get_previous_bal(user)
         bal = save_user_BAL_data(user, bal)
         message_to_user = handle_BAL(bal, user, pet, previous_bal)
@@ -158,7 +163,7 @@ def handle_incorrect_input(phone_number):
 
 def handle_sms_received_user_not_found(phone_number):
 
-    message = client.messages.create(to=phone_number, from_=twilio_phone_number, body="I don't recognize your number! Please go to ??? and create an account :)")
+    message = client.messages.create(to=phone_number, from_=twilio_phone_number, body="I don't recognize your number! Please go to bleepie.herokuapp.com and create an account :)")
 
     return HttpResponse(message, content_type='text/xml')
 
