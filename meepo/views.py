@@ -9,7 +9,9 @@ from datetime import datetime, date, time
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import authenticate, login, update_session_auth_hash
+from django.contrib import messages
 from django.http import HttpResponse
 
 from .models import Pet, User, BAL
@@ -42,6 +44,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'meepo/signup.html', {'form': form})
+
 
 @login_required
 def pet_status(request):
